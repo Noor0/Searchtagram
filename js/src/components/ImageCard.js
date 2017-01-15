@@ -61,7 +61,7 @@ export default class ImageCard extends React.Component {
       		</a>
       	</ImageDiv>
       	<StatPanel ref={(sp)=>{this.SP=sp}} >
-            <span style={{fontWeight:"bold",color:"red"}}><FontAwesome name="heart" size="1x" /> {this.props.likes}</span>
+            <span style={{fontWeight:"bold",color:"red"}}><FontAwesome name="heart" /> {this.props.likes}</span>
       		  <span style={{fontWeight:"bold",color:"steelblue"}}><FontAwesome name="comments" /> {this.props.comments}</span>
       	</StatPanel>
       </Image_Card>

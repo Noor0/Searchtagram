@@ -93,6 +93,6 @@ export default class Header extends React.Component{
 				else
 					elem.className+=" animated fadeInUp ";
 			});
-		},600);
+		},800);
 	}
 }
