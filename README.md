@@ -7,6 +7,7 @@ Searchtagram uses instagram API to get location id which is then used to scrape 
  - react
  - redux
  - react-fontawesome
+ - styled-components
  - jquery
  - Instagram API
  - Google maps api
