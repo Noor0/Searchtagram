@@ -16,7 +16,7 @@ let Container = styled.div`
 let ImageDiv = styled.div`
 	display:flex;
 	flex-flow:row wrap;
-	justify-content:flex-start;
+	justify-content:center;
 	align-items:flex-start;
 	padding:0px 30px;
 	width:100%;

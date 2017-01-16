@@ -18,7 +18,7 @@ function accessTokenReducer(state="3551335934.9cb8ce6.172e1a70c8d24a48b03c7b275d
 	}
 }
 
-function fetchFlagReducer(state=false,action){
+function firstFetchFlagReducer(state=false,action){
 	switch(action.type){
 		case "FETCHING_IMAGES":
 			return true;
@@ -26,6 +26,28 @@ function fetchFlagReducer(state=false,action){
 			return state
 	}
 }
+
+// function isFetchingFlagReducer(state=false,action){
+// 	switch(action.type){
+// 		case "FETCHING_IMAGES":
+// 			return true;
+// 		case "FETCHED_IMAGES":
+// 			return false;
+// 		default:
+// 			return state;
+// 	}
+// }
+
+// function hasFetchedFlagReducer(state=false,action){
+// 	switch(action.type){
+// 		case "FETCHING_IMAGES":
+// 			return false;
+// 		case "FETCHED_IMAGES":
+// 			return true;
+// 		default:
+// 			return state;
+// 	}
+// }
 
 function scrapeReducer(state={},action){
 	switch(action.type){
@@ -42,6 +64,8 @@ function scrapeReducer(state={},action){
 export default combineReducers({
 	isLoggedin:loginReducer,
 	accessToken:accessTokenReducer,
-	firstFetchFlag:fetchFlagReducer,
+	firstFetchFlag:firstFetchFlagReducer,
 	images:scrapeReducer
+	// isFetching:isFetchingFlagReducer,
+	// hasFetched:hasFetchedFlagReducer
 });

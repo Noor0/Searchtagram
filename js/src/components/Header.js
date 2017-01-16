@@ -1,5 +1,4 @@
 import React from "react";
-import HeaderDialogue from "./HeaderDialogue";
 import styled from "styled-components";
 
 
@@ -66,13 +65,12 @@ export default class Header extends React.Component{
 	render(){
 		return(
 			<Container>
-				<HeaderDialogue />
 				<CommonDiv flexJ="flex-end" flex={1}>
 					<HeaderText id="title" >Searchta<Span>gram</Span></HeaderText>
 				</CommonDiv>
 				<CommonDiv flexJ="flex-start" flex={1}>
 					<h3 style={{visibility:"hidden"}} id="h3" >Search for images on instagram using google maps</h3>
-					<Link id="link" href="https://api.instagram.com/oauth/authorize/?client_id=9cb8ce638c604b67a9e061e5cc0cab37&redirect_uri=http://127.0.0.1:8887/&response_type=token&scope=public_content">Login to Instagram</Link>
+					{/*<Link id="link" href="https://api.instagram.com/oauth/authorize/?client_id=9cb8ce638c604b67a9e061e5cc0cab37&redirect_uri=http://127.0.0.1:8887/&response_type=token&scope=public_content">Login to Instagram</Link>*/}
 				</CommonDiv>
 			</Container>
 		);
@@ -81,14 +79,13 @@ export default class Header extends React.Component{
 	componentDidMount(){
 		let elems= [
 			document.getElementById("h3"),
-			document.getElementById("link"),
 			document.getElementById("title")
 		];
 
 		setTimeout(()=>{
 			elems.forEach((elem,ind)=>{
 				elem.style.visibility="visible"
-				if(ind == [2])
+				if(ind == [1])
 					elem.className+=" animated fadeInDown ";
 				else
 					elem.className+=" animated fadeInUp ";

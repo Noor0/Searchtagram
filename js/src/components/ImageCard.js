@@ -18,11 +18,10 @@ let StatPanel= styled.div`
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  display: flex;
+  display: none;
   width:100%;
   flex:1;
   background-color:white;
-  visibility:hidden;
 `;
 
 let Image_Card = styled.div`
@@ -43,7 +42,16 @@ let ImageDiv = styled.div`
   width:100%;
   flex-direction: column;
   justify-content: center;
-  visibility:hidden;
+  align-items: center;
+  overflow:hidden;
+`;
+
+let Img = styled.img`
+	display:none;
+	max-width:300px;
+  max-height:270px;
+  width: auto;
+  height: auto;
 `;
 
 export default class ImageCard extends React.Component {
@@ -53,11 +61,12 @@ export default class ImageCard extends React.Component {
   }
 
   render() {
-    return (
+  	return (
       <Image_Card>
       	<ImageDiv>
       		<a href={"http://instagram.com/p/"+this.props.code}>
-      			<Div ref={(id)=>{this.ID=id;}} url={this.props.url} />
+      			<Img style={{}} onLoad={this.fadeItIn.bind(this)} ref={(id)=>{this.ID=id;}} src={this.props.url} />
+   					<FontAwesome ref={spnr => {this.spnr=spnr}} spin name="circle-o-notch" />
       		</a>
       	</ImageDiv>
       	<StatPanel ref={(sp)=>{this.SP=sp}} >
@@ -68,18 +77,32 @@ export default class ImageCard extends React.Component {
     );
   }
 
-  componentDidMount(){
+  fadeItIn(){
+  	ReactDOM.findDOMNode(this.spnr).style.display="none";
     let elems = [
       ReactDOM.findDOMNode(this.ID),
       ReactDOM.findDOMNode(this.SP)
     ];
-    setTimeout(
-      ()=>{
-        elems.forEach((e)=>{
-          e.style.visibility="visible";
-          e.className+=" animated fadeIn ";
-        })
-      }, 2500);
+    
+   //  if(elems[0].width <= elems[0].height && !elems[0].width <= 270){
+   //  	let diff = elems[0].width - 270;
+   //  	elems[0].width=270;
+   //  	elems[0].height=elems[0].height-diff;
+   //  }
+   //  else{
+   //  	if(elems[0].height <= elems[0].width && !elems[0].height <= 270){
+	  //   	let diff = elems[0].height - 270;
+	  //   	elems[0].height=270;
+	  //   	elems[0].width-=diff;
+   //  	}
+  	// }
+    elems.forEach((e,i)=>{
+    	if (i == 0)
+    		e.style.display="block";
+    	else
+      	e.style.display="flex";
+      e.className+=" animated fadeIn ";
+    });
     
   }
 }
