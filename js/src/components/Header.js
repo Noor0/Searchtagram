@@ -52,14 +52,14 @@ let CommonDiv = styled.div`
 	background-color:${props => props.bg}
 `;
 
-let Link = styled.a`
+/*let Link = styled.a`
 	text-decoration:none;
 	display:block;
 	font-size:18px;
 	font-weight:bold;
 	color:#5da0f1;
 	visibility:hidden;
-`;
+`;*/
 
 export default class Header extends React.Component{
 	render(){
@@ -90,6 +90,6 @@ export default class Header extends React.Component{
 				else
 					elem.className+=" animated fadeInUp ";
 			});
-		},800);
+		},1000);
 	}
 }

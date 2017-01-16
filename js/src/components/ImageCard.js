@@ -49,7 +49,7 @@ let ImageDiv = styled.div`
 let Img = styled.img`
 	display:none;
 	max-width:300px;
-  max-height:270px;
+  max-height:300px;
   width: auto;
   height: auto;
 `;
@@ -65,8 +65,8 @@ export default class ImageCard extends React.Component {
       <Image_Card>
       	<ImageDiv>
       		<a href={"http://instagram.com/p/"+this.props.code}>
-      			<Img style={{}} onLoad={this.fadeItIn.bind(this)} ref={(id)=>{this.ID=id;}} src={this.props.url} />
-   					<FontAwesome ref={spnr => {this.spnr=spnr}} spin name="circle-o-notch" />
+      			<Img onLoad={this.fadeItIn.bind(this)} ref={(id)=>{this.ID=id;}} src={this.props.url} />
+   					<FontAwesome style={{color:"steelblue"}} ref={spnr => {this.spnr=spnr}} spin size="4x" name="spinner" />
       		</a>
       	</ImageDiv>
       	<StatPanel ref={(sp)=>{this.SP=sp}} >
@@ -83,19 +83,7 @@ export default class ImageCard extends React.Component {
       ReactDOM.findDOMNode(this.ID),
       ReactDOM.findDOMNode(this.SP)
     ];
-    
-   //  if(elems[0].width <= elems[0].height && !elems[0].width <= 270){
-   //  	let diff = elems[0].width - 270;
-   //  	elems[0].width=270;
-   //  	elems[0].height=elems[0].height-diff;
-   //  }
-   //  else{
-   //  	if(elems[0].height <= elems[0].width && !elems[0].height <= 270){
-	  //   	let diff = elems[0].height - 270;
-	  //   	elems[0].height=270;
-	  //   	elems[0].width-=diff;
-   //  	}
-  	// }
+  
     elems.forEach((e,i)=>{
     	if (i == 0)
     		e.style.display="block";
